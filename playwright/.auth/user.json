@@ -1,0 +1,75 @@
+{
+  "cookies": [
+    {
+      "name": "PHPSESSID",
+      "value": "ml3khhtof6qu554coal1cv0fe0",
+      "domain": "www.pokellector.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga",
+      "value": "GA1.2.1124872406.1701012511",
+      "domain": ".pokellector.com",
+      "path": "/",
+      "expires": 1735572512.477185,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gid",
+      "value": "GA1.2.1485932856.1701012511",
+      "domain": ".pokellector.com",
+      "path": "/",
+      "expires": 1701098912,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_gat",
+      "value": "1",
+      "domain": ".pokellector.com",
+      "path": "/",
+      "expires": 1701012570,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "UID",
+      "value": "1F2f4603b87e33e099bcb441701012510",
+      "domain": ".scorecardresearch.com",
+      "path": "/",
+      "expires": 1735572512.405753,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "plut",
+      "value": "677472%3Ae926a1d8e95ac34af59b1e4221bba90f%3A85a26cdb4f97293751ccb0b69ba9029574c5df577fb1e00f22b6137a7d669ba1",
+      "domain": ".pokellector.com",
+      "path": "/",
+      "expires": 1702222111.848817,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_ga_K2BQZ78QPD",
+      "value": "GS1.2.1701012511.1.1.1701012512.0.0.0",
+      "domain": ".pokellector.com",
+      "path": "/",
+      "expires": 1735572512.227554,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}
