@@ -21,6 +21,9 @@ setup('authenticate', async ({ page }) => {
     // await expect(page.locator('//h1[@class="post-title"]')).toBeVisible();
 
     // End of authentication steps.
+    expect.soft(await loginComp.getProfileName()).toEqual('khaled');
 
     await page.context().storageState({ path: authFile });
+
+
 });
