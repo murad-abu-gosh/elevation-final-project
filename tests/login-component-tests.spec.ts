@@ -1,7 +1,7 @@
 import {test, expect, Browser, Page} from '@playwright/test';
 import {chromium} from "playwright";
 
-import {LoginComponent} from "../src/POM/LoginComponent";
+import {LoginComponent} from "../src/Logic - POM/LoginComponent";
 import {LOGIN_EMAIL, LOGIN_PASSWORD} from "../terminal-x-config";
 
 test.describe('Terminal X Login Page', () => {

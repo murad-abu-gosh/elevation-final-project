@@ -1,9 +1,9 @@
 import {test, expect, Browser, Page} from '@playwright/test';
 import {describe} from "node:test";
 import {chromium} from "playwright";
-import {CartPage} from "../src/POM/CartPage";
-import {LoginComponent} from "../src/POM/LoginComponent";
-import {MiniCartComponent} from "../src/POM/MiniCartComponent";
+import {CartPage} from "../src/Logic - POM/CartPage";
+import {LoginComponent} from "../src/Logic - POM/LoginComponent";
+import {MiniCartComponent} from "../src/Logic - POM/MiniCartComponent";
 
 describe('Cart Page and Mini-Cart Tests', async () => {
     let browser: Browser;

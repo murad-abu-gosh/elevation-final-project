@@ -1,8 +1,8 @@
 import {test, expect, Browser, Page} from '@playwright/test';
 import {describe} from "node:test";
 import {chromium} from "playwright";
-import {LoginComponent} from "../src/POM/LoginComponent";
-import {SearchComponent} from "../src/POM/SearchComponent";
+import {LoginComponent} from "../src/Logic - POM/LoginComponent";
+import {SearchComponent} from "../src/Logic - POM/SearchComponent";
 
 describe('Search Component Tests', async () => {
     let browser: Browser;
