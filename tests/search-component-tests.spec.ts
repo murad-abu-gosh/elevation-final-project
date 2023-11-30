@@ -40,7 +40,6 @@ describe('Search Component Tests', async () => {
             await page.waitForURL(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
             expect(page.url()).toEqual(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
 
-
         });
     }
 
