@@ -9,7 +9,8 @@ test.describe('Terminal X Login Page', () => {
     let page: Page;
     let loginPage: LoginComponent
     test.beforeAll(async () => {
-        browser = await chromium.launch({headless: false});
+        // browser = await chromium.launch({headless: false});
+        browser = await chromium.launch();
     });
     test.beforeEach(async () => {
         page = await browser.newPage();
