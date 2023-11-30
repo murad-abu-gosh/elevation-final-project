@@ -56,14 +56,25 @@ export default defineConfig({
         // },
 
         /* Test against branded browsers. */
-        // {
-        //   name: 'Microsoft Edge',
-        //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-        // },
-        // {
-        //   name: 'Google Chrome',
-        //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-        // },
+        {
+          name: 'Microsoft Edge',
+          use: { ...devices['Desktop Edge'], channel: 'msedge',
+              storageState: 'playwright/.auth/user.json',
+              viewport: {width: 1920, height: 1080},
+          },
+            // Use prepared auth state.
+
+        },
+        {
+          name: 'Google Chrome',
+          use: {
+              ...devices['Desktop Chrome'], channel: 'chrome',
+              // Use prepared auth state.
+              storageState: 'playwright/.auth/user.json',
+              viewport: {width: 1920, height: 1080},
+
+          },
+        },
     ],
 
     /* Run your local dev server before starting the tests */
