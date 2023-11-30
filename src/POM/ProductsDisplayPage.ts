@@ -1,0 +1,6 @@
+// "li[class*='listing-product']"
+// "div[data-test-id='qa-size-item']"
+// "div[data-test-id='qa-color-item-not-available']"
+// "div[data-test-id='qa-size-item-not-available']"
+// "div[data-test-id='qa-color-item']"
+// "div[data-test-id='qa-header-login-button']"
