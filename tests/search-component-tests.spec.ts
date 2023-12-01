@@ -1,21 +1,27 @@
-import {test, expect, Browser, Page} from '@playwright/test';
+import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
 import {describe} from "node:test";
 import {chromium} from "playwright";
 import {LoginComponent} from "../src/Logic - POM/LoginComponent";
 import {SearchComponent} from "../src/Logic - POM/SearchComponent";
+import { Launcher } from '../src/Infra/Launcher';
 
 describe('Search Component Tests', async () => {
     let browser: Browser;
     let page: Page;
+    let context:BrowserContext;
+    let launcher:Launcher;
     let searchComponent: SearchComponent
     let loginComponent: LoginComponent
     test.beforeAll(async () => {
         // browser = await chromium.launch({headless: false});
-        browser = await chromium.launch();
-
+        launcher = new Launcher()
+        // browser = await chromium.launch();
+        browser=await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
-        page = await browser.newPage();
+        // page = await browser.newPage();
+        context = await launcher.NewContext()
+        page = await launcher.NewPage()
         searchComponent = new SearchComponent(page)
         loginComponent = new LoginComponent(page)
         await page.goto(SearchComponent.url);

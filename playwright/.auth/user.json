@@ -2,17 +2,17 @@
   "cookies": [
     {
       "name": "cee",
-      "value": "%2FCTRVatr1Cm6OT6cfJjIRv1zWgSHNswDqW50ymuKZ%2Fk%3D.%7B%22cee_id%22%3A%22cee.1701361868893.25527%22%2C%22country%22%3A%22a0fb903525dc10dccaa4bd72bed4fe5b24ae8346b8a7343edce84172feb7085a%22%2C%22external_id%22%3A%22guest%22%2C%22em%22%3A%225db2318ffa84c5c5ebc7ca9dd0c1934fa8d2ce9e75e06f4f136b355099224ac6%22%7D",
+      "value": "ZfQ6s5kGI55pbALcDs%2FvVopGXxrFI3d2pgz9jRNDySk%3D.%7B%22cee_id%22%3A%22cee.1701448766629.18465%22%2C%22country%22%3A%22a0fb903525dc10dccaa4bd72bed4fe5b24ae8346b8a7343edce84172feb7085a%22%2C%22external_id%22%3A%22guest%22%2C%22em%22%3A%225db2318ffa84c5c5ebc7ca9dd0c1934fa8d2ce9e75e06f4f136b355099224ac6%22%7D",
       "domain": ".rzmjij.terminalx.com",
       "path": "/events/6d0ffaec4f4f00b2c8d5f2064b0410632b9858e26c72c50fec6b054d54b0a78b",
-      "expires": 1709137877.120695,
+      "expires": 1709224775.457093,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "taboola_session_id",
-      "value": "v2_39b251c6a75c8ff812b68d440b821f0f_b3d00c36-d239-41a1-9049-01cd5adda5d4-tuctc623e4c_1701361868_1701361876_CNawjgYQpZtEGLv7x4jCMSACKAEwZjiI6wpArpAQSNbS2ANQ____________AVgAYABokMHopa7UqaXLAXAB",
+      "value": "v2_f0fbcdd029bf6d54cb50eafbd4192e35_11c8cb13-1b13-4bba-8697-f32ac5421061-tuctc6391bb_1701448765_1701448774_CNawjgYQpZtEGKDi_7HCMSACKAMwZjiI6wpAr5AQSPDS2ANQ____________AVgAYABoiPDD2NyN2vTxAXAB",
       "domain": ".taboola.com",
       "path": "/terminalx-sc/",
       "expires": -1,
@@ -22,33 +22,43 @@
     },
     {
       "name": "syte_uuid",
-      "value": "dd19d840-8f9d-11ee-9446-a944988f6943",
+      "value": "2d629ce0-9068-11ee-95e7-6ff5714fe836",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1732897875,
+      "expires": 1732984772,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ga",
-      "value": "GA1.2.1414435272.1701361868",
+      "value": "GA1.2.1838668941.1701448761",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1735921876.741365,
+      "expires": 1736008774.845544,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_gid",
-      "value": "GA1.2.2037904586.1701361868",
+      "value": "GA1.2.1711891831.1701448761",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1701448276,
+      "expires": 1701535174,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
+    },
+    {
+      "name": "_ttp",
+      "value": "2Ywu3GPVb5B5lBr2zVGxMiSQ0Wf",
+      "domain": ".tiktok.com",
+      "path": "/",
+      "expires": 1735144773.996001,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
     },
     {
       "name": "language",
@@ -61,41 +71,61 @@
       "sameSite": "Lax"
     },
     {
-      "name": "stimgs",
-      "value": "{%22sessionId%22:74492913%2C%22didReportCameraImpression%22:true%2C%22newUser%22:true}",
-      "domain": "www.terminalx.com",
+      "name": "t_gid",
+      "value": "11c8cb13-1b13-4bba-8697-f32ac5421061-tuctc6391bb",
+      "domain": ".taboola.com",
       "path": "/",
-      "expires": 1701363676,
+      "expires": 1732984775.164763,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "t_pt_gid",
+      "value": "11c8cb13-1b13-4bba-8697-f32ac5421061-tuctc6391bb",
+      "domain": ".taboola.com",
+      "path": "/",
+      "expires": 1732984775.164921,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "_tt_enable_cookie",
+      "value": "1",
+      "domain": ".terminalx.com",
+      "path": "/",
+      "expires": 1735144764,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_ttp",
-      "value": "2Yu3vUkz2sIHd0AAMsER7vQo5Ik",
-      "domain": ".tiktok.com",
+      "value": "rz1fLeMfUuIJwUh4Kke8v_zvLqH",
+      "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1735057876.448491,
+      "expires": 1735144764,
       "httpOnly": false,
-      "secure": true,
-      "sameSite": "None"
+      "secure": false,
+      "sameSite": "Lax"
     },
     {
       "name": "MUID",
-      "value": "1C95F7442FF76FA22A9FE49D2E676E43",
+      "value": "37F11513941061C6121906C995806061",
       "domain": ".bing.com",
       "path": "/",
-      "expires": 1735057868.698009,
+      "expires": 1735144765.566335,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "_gcl_au",
-      "value": "1.1.1378979184.1701361869",
+      "value": "1.1.1192417328.1701448765",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1709137869,
+      "expires": 1709224765,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -105,117 +135,107 @@
       "value": "1",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1701361928,
+      "expires": 1701448825,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_fbp",
-      "value": "fb.1.1701361869021.498167994",
+      "value": "fb.1.1701448765642.63158147",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1709137877,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_tt_enable_cookie",
-      "value": "1",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1735057869,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "_ttp",
-      "value": "8-5xuJYRSyV8yMI9OehtLLAcT83",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1735057869,
+      "expires": 1709224775,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "ts",
-      "value": "1701361868",
+      "value": "1701448765",
       "domain": ".creativecdn.com",
       "path": "/",
-      "expires": 1732897869.144865,
+      "expires": 1732984765.958441,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "u",
-      "value": "vLj6NH1rHFzESvXfNrxc",
+      "value": "wvA51fL63DdvwBtdD4bY",
       "domain": ".creativecdn.com",
       "path": "/",
-      "expires": 1732897869.144782,
+      "expires": 1732984765.958047,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "g",
-      "value": "vLj6NH1rHFzESvXfNrxc_1701361868462",
+      "value": "wvA51fL63DdvwBtdD4bY_1701448765606",
       "domain": ".creativecdn.com",
       "path": "/",
-      "expires": 1732897869.144822,
+      "expires": 1732984765.958257,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "c",
-      "value": "vLj6NH1rHFzESvXfNrxc_SDBGujn6hi6jtiBuVx86_1701361868462",
+      "value": "wvA51fL63DdvwBtdD4bY_SDBGujn6hi6jtiBuVx86_1701448765606",
       "domain": ".creativecdn.com",
       "path": "/",
-      "expires": 1732897869.144843,
+      "expires": 1732984765.958352,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "IDE",
-      "value": "AHWqTUmMSSvfGKGh_xxIIKGbkpO59nVvpgn792EVRBKbELuryy91ViqviTuC9d6FIos",
+      "value": "AHWqTUnCToS--GdHdUYgJqwvm1Cjt9G1Igl7wJ6j1pg2VEKdKVcZsRNPBYCWnh6QJl8",
       "domain": ".doubleclick.net",
       "path": "/",
-      "expires": 1735921869.25353,
+      "expires": 1736008766.155668,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "t_gid",
-      "value": "b3d00c36-d239-41a1-9049-01cd5adda5d4-tuctc623e4c",
-      "domain": ".taboola.com",
+      "name": "stimgs",
+      "value": "{%22sessionId%22:47811486%2C%22didReportCameraImpression%22:true%2C%22newUser%22:true}",
+      "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1732897877.093879,
+      "expires": 1701450575,
       "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "uuid2",
+      "value": "4031349281843541861",
+      "domain": ".adnxs.com",
+      "path": "/",
+      "expires": 1709224767.231198,
+      "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
-      "name": "t_pt_gid",
-      "value": "b3d00c36-d239-41a1-9049-01cd5adda5d4-tuctc623e4c",
-      "domain": ".taboola.com",
+      "name": "anj",
+      "value": "dTM7k!M4/rD>6NRF']wIg2IlddmHpl!]tbPl@/@8+nOv3U_h0*aYl^O:^pb.`Y^gd:sNyE8]>1)?5*tXI+GPA8f^Zj:?k+$Fnaz+^NDon1twzN3If)y3KL9D3I?+O8=8ff",
+      "domain": ".adnxs.com",
       "path": "/",
-      "expires": 1732897877.09407,
-      "httpOnly": false,
+      "expires": 1709224767.231044,
+      "httpOnly": true,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "glassix-visitor-id-v2-b6d2bc1d-dcdc-4766-b620-28559157075a",
-      "value": "8506e7e6-f158-4992-9477-0e635235eb8d",
+      "value": "0801a63e-4775-4a55-aa4b-85d5f7ae964b",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1735921870.153186,
+      "expires": 1736008768.449233,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
@@ -232,10 +252,10 @@
     },
     {
       "name": "PHPSESSID",
-      "value": "9nm1anu7mhs5co62f3hrosd0ko",
+      "value": "d13mcebnt4gdqhftci3f38ik5d",
       "domain": ".www.terminalx.com",
       "path": "/",
-      "expires": 1732897876.851525,
+      "expires": 1732984775.473398,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -245,110 +265,60 @@
       "value": "1",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1701966676.851643,
+      "expires": 1702053575.474189,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
+    },
+    {
+      "name": "optimove_id",
+      "value": "KHALEDIDKIDK@GMAIL.COM",
+      "domain": ".gcm.optimove.events",
+      "path": "/",
+      "expires": 1733071170.3032,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
     },
     {
       "name": "syte_ab_tests",
       "value": "{}",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1732897875,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "wz.nv",
-      "value": "1",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1701363676,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "wz.pid",
-      "value": "610L1G3q77646n85M1c8e7qSz",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1701363676,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "wz.uid",
-      "value": "j08Y7BN224643116I77V6x51Z",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1732897876,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "wz.sid_71890b4b-2c91-43ff-b553-fe47f742a666",
-      "value": "7wv7586v40B63x1Z1i1TD87mw",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1701363676,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "wz.sid",
-      "value": "7wv7586v40B63x1Z1i1TD87mw",
-      "domain": ".terminalx.com",
-      "path": "/",
-      "expires": 1701363676,
+      "expires": 1732984772,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_uetsid",
-      "value": "dd9bc5408f9d11eea2d40b5474a934ea",
+      "value": "2f8fa430906811eea6a82bcdbcbcca1d",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1701448276,
+      "expires": 1701535173,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "_uetvid",
-      "value": "dd9bf9d08f9d11ee807355d719884b68",
+      "value": "2f9024a0906811ee93f90b25debac3ee",
       "domain": ".terminalx.com",
       "path": "/",
-      "expires": 1735057876,
+      "expires": 1735144773,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "private_content_version",
-      "value": "2c3e3de5775fdbea312c86a520f6b249",
+      "value": "41f2e2eb4a87756db6ae727fe6b69605",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1735921876.851608,
+      "expires": 1736008775.474048,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
-    },
-    {
-      "name": "optimove_id",
-      "value": "undefined",
-      "domain": ".gcm.optimove.events",
-      "path": "/",
-      "expires": 1732984277.201732,
-      "httpOnly": true,
-      "secure": true,
-      "sameSite": "None"
     }
   ],
   "origins": [
@@ -357,11 +327,11 @@
       "localStorage": [
         {
           "name": "1117605:session-data",
-          "value": "v2_39b251c6a75c8ff812b68d440b821f0f_b3d00c36-d239-41a1-9049-01cd5adda5d4-tuctc623e4c_1701361868_1701361876_CNawjgYQpZtEGLv7x4jCMSACKAEwZjiI6wpArpAQSNbS2ANQ____________AVgAYABokMHopa7UqaXLAXAB"
+          "value": "v2_f0fbcdd029bf6d54cb50eafbd4192e35_11c8cb13-1b13-4bba-8697-f32ac5421061-tuctc6391bb_1701448765_1701448774_CNawjgYQpZtEGKDi_7HCMSACKAMwZjiI6wpAr5AQSPDS2ANQ____________AVgAYABoiPDD2NyN2vTxAXAB"
         },
         {
           "name": "__rtbhouse.lid",
-          "value": "gMWq8zFGL5tEWbZ9QxEc"
+          "value": "KK5rDo8O5rBiwVlpE8ac"
         },
         {
           "name": "h-u-a",
@@ -373,7 +343,7 @@
         },
         {
           "name": "taboola global:user-id",
-          "value": "b3d00c36-d239-41a1-9049-01cd5adda5d4-tuctc623e4c"
+          "value": "11c8cb13-1b13-4bba-8697-f32ac5421061-tuctc6391bb"
         },
         {
           "name": "215d26f4be2047f348066e44ee7fe3d6",
@@ -384,16 +354,12 @@
           "value": "Windows"
         },
         {
-          "name": "wz_sampling_status",
-          "value": "{\"status\":true,\"expAt\":1701365476453}"
-        },
-        {
           "name": "19a826c7f361268a43da3a46a12047f3",
-          "value": "7df3f680-eaa8-480a-900c-ddac37545b42"
+          "value": "0cdead11-5e7f-427e-b133-d1189207a029"
         },
         {
           "name": "_uetvid_exp",
-          "value": "Tue, 24 Dec 2024 16:31:16 GMT"
+          "value": "Wed, 25 Dec 2024 16:39:33 GMT"
         },
         {
           "name": "990a6d8eb6cbb8ea44b73d21f1e473b43b9c74ea",
@@ -401,11 +367,11 @@
         },
         {
           "name": "eng_mt",
-          "value": "{\"ver\":36,\"sessionStartTime\":1701361869145,\"scrollDepth\":0,\"sessionDepth\":[\"1718744646\"],\"timeOnSite\":6206,\"crossSessionsData\":{\"sessionsHistory\":[1701361869145]},\"numOfTimesMetricsSent\":2}"
+          "value": "{\"ver\":36,\"sessionStartTime\":1701448762204,\"scrollDepth\":0,\"sessionDepth\":[\"1718744646\"],\"timeOnSite\":10154,\"crossSessionsData\":{\"sessionsHistory\":[1701448762204]},\"numOfTimesMetricsSent\":2}"
         },
         {
           "name": "h-u-i",
-          "value": "d3ee70e2-abaa-459c-8b7c-2522fcd2c938"
+          "value": "08ab7e74-a890-4c55-919c-c23092ae3416"
         },
         {
           "name": "lastExternalReferrer",
@@ -413,15 +379,15 @@
         },
         {
           "name": "_uetsid_exp",
-          "value": "Fri, 01 Dec 2023 16:31:16 GMT"
+          "value": "Sat, 02 Dec 2023 16:39:33 GMT"
         },
         {
           "name": "511a26f4be2047a348064e4abe8ce2a9",
-          "value": "2023-11-30T16:31:08.549Z"
+          "value": "2023-12-01T16:39:24.383Z"
         },
         {
           "name": "lastExternalReferrerTime",
-          "value": "1701361877004"
+          "value": "1701448773992"
         },
         {
           "name": "d0df7f0a4c2724ff587c1cfb3e315b432e2d1f50",
@@ -433,7 +399,7 @@
         },
         {
           "name": "_uetvid",
-          "value": "dd9bf9d08f9d11ee807355d719884b68"
+          "value": "2f9024a0906811ee93f90b25debac3ee"
         },
         {
           "name": "4ba302311571f45d57f1aa75e428b9b78d59a7a2",
@@ -441,7 +407,7 @@
         },
         {
           "name": "_uetsid",
-          "value": "dd9bc5408f9d11eea2d40b5474a934ea"
+          "value": "2f8fa430906811eea6a82bcdbcbcca1d"
         }
       ]
     }

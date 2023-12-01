@@ -1,19 +1,28 @@
-import {test, expect, Browser, Page} from '@playwright/test';
+import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
 import {chromium} from "playwright";
 
 import {LoginComponent} from "../src/Logic - POM/LoginComponent";
 import {LOGIN_EMAIL, LOGIN_PASSWORD} from "../terminal-x-config";
+import { Launcher } from '../src/Infra/Launcher';
+
 
 test.describe('Terminal X Login Page', () => {
     let browser: Browser;
+    let context:BrowserContext;
     let page: Page;
+    let launcher:Launcher;
+
     let loginPage: LoginComponent
     test.beforeAll(async () => {
         // browser = await chromium.launch({headless: false});
-        browser = await chromium.launch();
+        launcher = new Launcher()
+        // browser = await chromium.launch();
+        browser=await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
-        page = await browser.newPage();
+        // page = await browser.newPage();
+        context = await launcher.NewContext()
+        page = await launcher.NewPage()
         loginPage = new LoginComponent(page)
         await page.goto(LoginComponent.url);
 
