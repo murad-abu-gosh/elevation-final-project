@@ -67,11 +67,11 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
 
         await miniCartComponent.navigateToPage()
         // await page.waitForTimeout(4000)
-        await miniCartComponent.waitForPageLoad()
-        let itemsCountBeforeRemoval = +await miniCartComponent.getCurrentItemsCount()
+        await miniCartComponent.waitForPageLoadNet()
+        let itemsCountBeforeRemoval = await miniCartComponent.getCurrentItemsCount()
         await miniCartComponent.fullRemoveFirstItemFlow()
-        await miniCartComponent.waitForPageLoad()
-        let itemsCountAfterRemoval = +await miniCartComponent.getCurrentItemsCount()
+        await miniCartComponent.waitForPageLoadNet()
+        let itemsCountAfterRemoval = await miniCartComponent.getCurrentItemsCount()
 
         let expected = itemsCountBeforeRemoval - 1
         expect(itemsCountAfterRemoval).toEqual(expected)
@@ -86,10 +86,10 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         await miniCartComponent.navigateToPage()
 
         //Act
-        await miniCartComponent.waitForPageLoad()
+        await miniCartComponent.waitForPageLoadNet()
         await miniCartComponent.clickMiniCartWindow()
         await miniCartComponent.clickShoppingCartNavigateButton()
-        await miniCartComponent.waitForPageLoad()
+        await miniCartComponent.waitForPageLoadNet()
         // await page.waitForURL(`${ROOT_WEBSITE}/checkout/cart`)
 
         await cartPage.waitForCartPage()

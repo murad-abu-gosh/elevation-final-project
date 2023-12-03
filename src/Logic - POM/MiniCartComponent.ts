@@ -28,7 +28,7 @@ export class MiniCartComponent extends BaseComponent{
     }
 
     getCurrentItemsCount = async () => {
-        return await this.itemsCountTag.textContent()
+        return Number(await this.itemsCountTag.textContent());
     }
 
     clickMiniCartWindow = async () => {
