@@ -5,6 +5,7 @@ import {CartPage} from "../src/Logic - POM/CartPage";
 import {LoginComponent} from "../src/Logic - POM/LoginComponent";
 import {MiniCartComponent} from "../src/Logic - POM/MiniCartComponent";
 import { Launcher } from '../src/Infra/Launcher';
+import {ROOT_URL} from "../terminal-x-config";
 
 describe('Cart Page and Mini-Cart Tests', async () => {
     let browser: Browser;
@@ -42,11 +43,12 @@ describe('Cart Page and Mini-Cart Tests', async () => {
     test("remove first item from cart", async () => {
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
-        await page.goto(CartPage.url, { waitUntil: 'domcontentloaded' })
-        await page.waitForLoadState("networkidle")
+        await cartPage.navigateToPage()
+        await cartPage.waitForPageLoad()
         let itemsCountBeforeRemoval = + await cartPage.getCurrentItemsCount()
         await cartPage.fullRemoveFirstItemFlow()
-        await page.waitForTimeout(4000)
+        await cartPage.waitForPageLoad()
+        // await page.waitForTimeout(4000)
         let itemsCountAfterRemoval = + await cartPage.getCurrentItemsCount()
 
         let expected = itemsCountBeforeRemoval - 1
@@ -59,12 +61,12 @@ describe('Cart Page and Mini-Cart Tests', async () => {
     test("remove first item from mini-cart", async () => {
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
 
-        await page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
+        await miniCartComponent.navigateToPage()
         // await page.waitForTimeout(4000)
-        await page.waitForLoadState('networkidle')
+        await miniCartComponent.waitForPageLoad()
         let itemsCountBeforeRemoval = +await miniCartComponent.getCurrentItemsCount()
         await miniCartComponent.fullRemoveFirstItemFlow()
-        await page.waitForTimeout(4000)
+        await miniCartComponent.waitForPageLoad()
         let itemsCountAfterRemoval = +await miniCartComponent.getCurrentItemsCount()
 
         let expected = itemsCountBeforeRemoval - 1
@@ -77,18 +79,19 @@ describe('Cart Page and Mini-Cart Tests', async () => {
         //Arrange
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
-        await page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
+        await miniCartComponent.navigateToPage()
 
         //Act
-        await page.waitForLoadState('networkidle')
+        await miniCartComponent.waitForPageLoad()
         await miniCartComponent.clickMiniCartWindow()
         await miniCartComponent.clickShoppingCartNavigateButton()
-        await page.waitForLoadState('networkidle')
-        await page.waitForURL('https://www.terminalx.com/checkout/cart')
+        await miniCartComponent.waitForPageLoad()
+        // await page.waitForURL(`${ROOT_WEBSITE}/checkout/cart`)
 
-
+        await cartPage.waitForCartPage()
+        expect(page.url()).toEqual(cartPage.getCartPageUrl())
         //Assert
-        expect(page.url()).toEqual('https://www.terminalx.com/checkout/cart')
+        // expect(page.url()).toEqual(`${ROOT_WEBSITE}/checkout/cart`)
 
 
     });

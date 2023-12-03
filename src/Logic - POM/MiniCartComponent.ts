@@ -1,18 +1,19 @@
 import {Locator, Page} from '@playwright/test'
+import {BaseComponent} from "./BaseComponent";
+import {ROOT_URL} from "../../terminal-x-config";
 
-export class MiniCartComponent {
-    private page: Page;
+export class MiniCartComponent extends BaseComponent{
     private email: Locator
     private password: Locator
     private removeFromCartButtons: Locator
     private miniCartWindow: Locator
-    public static url: string = 'https://www.terminalx.com'
+    public static url: string = `${ROOT_URL}`
     private confirmRemoveButton: Locator;
     private itemsCountTag: Locator
     private shoppingCartNavigateButton: Locator
 
     constructor(page: Page) {
-        this.page = page
+        super(page)
 
         this.removeFromCartButtons = page.locator("div[class^='minicart-items']").locator("button[class*='remove_wq']")
         this.miniCartWindow = page.locator("a[data-test-id='qa-link-minicart']")
@@ -51,5 +52,17 @@ export class MiniCartComponent {
         await this.clickMiniCartWindow()
         await this.clickFirstItemRemoveButton()
         await this.clickConfirmRemoveButton()
+    }
+
+    async navigateToPage(){
+        await this.page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
+    }
+
+    async waitForMiniCartPage() {
+
+    }
+
+    getMiniCartPage() {
+        return undefined;
     }
 }

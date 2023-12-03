@@ -1,15 +1,15 @@
 import {Locator, Page} from '@playwright/test'
+import {BasePage} from "./BasePage";
+import {ROOT_URL} from "../../terminal-x-config";
 
-export class CartPage {
-    private page: Page;
+export class CartPage extends BasePage{
     private removeFromCartButtons: Locator
-    public static url: string = 'https://www.terminalx.com/checkout/cart'
+    public static url: string = `${ROOT_URL}/checkout/cart`
     private itemsCountTag: Locator
     private shoppingCartNavigateButton: Locator
 
     constructor(page: Page) {
-        this.page = page
-
+        super(page)
         this.removeFromCartButtons = page.locator("div[class^='cart-items-list']").locator("button[class*='remove_wq']")
         this.itemsCountTag = page.locator("span[class^='item-count']")
         this.initPage()
@@ -33,5 +33,19 @@ export class CartPage {
 
     fullRemoveFirstItemFlow = async () => {
         await this.clickFirstItemRemoveButton()
+    }
+
+    async navigateToPage(){
+        await this.page.goto(CartPage.url, { waitUntil: 'domcontentloaded' })
+    }
+
+    async waitForCartPage() {
+        await this.page.waitForURL(CartPage.url)
+
+
+    }
+
+    getCartPageUrl() {
+        return CartPage.url
     }
 }

@@ -13,8 +13,8 @@ describe('Search Component Tests', async () => {
     let searchComponent: SearchComponent
     test.beforeAll(async () => {
         // browser = await chromium.launch({headless: false});
-        launcher = new Launcher()
         // browser = await chromium.launch();
+        launcher = new Launcher()
         browser=await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
@@ -40,10 +40,9 @@ describe('Search Component Tests', async () => {
 
             await searchComponent.fullSearchFlow(data)
             // await page.waitForTimeout(2000)
-            await page.waitForLoadState('networkidle')
-            //TODO: Put the two lines in POM
-            await page.waitForURL(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
-            expect(page.url()).toEqual(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
+            await searchComponent.waitForPageLoad()
+            await searchComponent.waitForSearchPage(data)
+            expect(page.url()).toEqual(searchComponent.getSearchPageUrl(data))
 
         });
     }

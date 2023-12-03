@@ -3,21 +3,21 @@ import {chromium} from "playwright";
 
 import {LoginComponent} from "../src/Logic - POM/LoginComponent";
 import {LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME} from "../terminal-x-config";
-import { Launcher } from '../src/Infra/Launcher';
+import {Launcher} from '../src/Infra/Launcher';
 
 
 test.describe('Terminal X Login Page', () => {
     let browser: Browser;
-    let context:BrowserContext;
+    let context: BrowserContext;
     let page: Page;
-    let launcher:Launcher;
+    let launcher: Launcher;
 
     let loginPage: LoginComponent
     test.beforeAll(async () => {
         // browser = await chromium.launch({headless: false});
-        launcher = new Launcher()
         // browser = await chromium.launch();
-        browser=await launcher.launchBrowser()
+        launcher = new Launcher()
+        browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
         // page = await browser.newPage();
@@ -41,17 +41,14 @@ test.describe('Terminal X Login Page', () => {
 
     test('test valid login', async () => {
         await loginPage.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
-        await page.waitForLoadState('networkidle')
-        //TODO: Wait for element to be visible,then check
+        await loginPage.waitForPageLoad()
         expect(await loginPage.getProfileName()).toEqual(PROFILE_NAME)
 
     });
 
     test('test invalid login', async () => {
-        let errorAlertBox = page.locator("div[data-test-id='qa-login-error-toast']")
         await loginPage.fullLoginFlow("invalidlogin@gmail.com", "invalidpassword")
-
-        await expect(errorAlertBox).toBeVisible()
+        expect(loginPage.getAlertBox()).toBeTruthy()
 
 
     });
