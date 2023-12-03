@@ -1,6 +1,7 @@
 import {Locator, Page} from '@playwright/test'
 import {BasePage} from "./BasePage";
 import {ROOT_URL} from "../../terminal-x-config";
+import { promises } from 'dns';
 
 export class CartPage extends BasePage{
     private removeFromCartButtons: Locator
@@ -20,7 +21,11 @@ export class CartPage extends BasePage{
     }
 
     getCurrentItemsCount = async () => {
-        return await this.itemsCountTag.textContent()
+     
+         
+    return  Number(await this.itemsCountTag.textContent())
+ 
+      
     }
 
     clickShoppingCartNavigateButton = async () => {

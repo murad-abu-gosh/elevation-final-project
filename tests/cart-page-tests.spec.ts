@@ -1,17 +1,18 @@
-import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
-import {describe} from "node:test";
-import {chromium} from "playwright";
-import {CartPage} from "../src/Logic - POM/CartPage";
-import {LoginComponent} from "../src/Logic - POM/LoginComponent";
-import {MiniCartComponent} from "../src/Logic - POM/MiniCartComponent";
-import { Launcher } from '../src/Infra/Launcher';
-import {ROOT_URL} from "../terminal-x-config";
+import { test, expect, Browser, Page, BrowserContext } from '@playwright/test';
 
-describe('Cart Page and Mini-Cart Tests', async () => {
+import { chromium } from "playwright";
+import { CartPage } from "../src/Logic - POM/CartPage";
+import { LoginComponent } from "../src/Logic - POM/LoginComponent";
+import { MiniCartComponent } from "../src/Logic - POM/MiniCartComponent";
+import { Launcher } from '../src/Infra/Launcher';
+import { ROOT_URL } from "../terminal-x-config";
+
+
+test.describe('Cart Page and Mini-Cart Tests', async () => {
     let browser: Browser;
     let page: Page;
-    let context:BrowserContext;
-    let launcher:Launcher;
+    let context: BrowserContext;
+    let launcher: Launcher;
     let cartPage: CartPage
     let loginComponent: LoginComponent
     let miniCartComponent: MiniCartComponent
@@ -20,7 +21,7 @@ describe('Cart Page and Mini-Cart Tests', async () => {
         // browser = await chromium.launch({headless: false});
         launcher = new Launcher()
         // browser = await chromium.launch();
-        browser=await launcher.launchBrowser()
+        browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
         // page = await browser.newPage();
@@ -43,15 +44,18 @@ describe('Cart Page and Mini-Cart Tests', async () => {
     test("remove first item from cart", async () => {
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
+
+
         await cartPage.navigateToPage()
-        await cartPage.waitForPageLoad()
-        let itemsCountBeforeRemoval = + await cartPage.getCurrentItemsCount()
+        await cartPage.waitForPageLoadNet()
+        let itemsCountBeforeRemoval = await cartPage.getCurrentItemsCount()
         await cartPage.fullRemoveFirstItemFlow()
-        await cartPage.waitForPageLoad()
-        // await page.waitForTimeout(4000)
-        let itemsCountAfterRemoval = + await cartPage.getCurrentItemsCount()
+        await cartPage.waitForPageLoadNet()
+        await page.waitForTimeout(4000)
+        let itemsCountAfterRemoval = await cartPage.getCurrentItemsCount()
 
         let expected = itemsCountBeforeRemoval - 1
+
         expect(itemsCountAfterRemoval).toEqual(expected)
 
 

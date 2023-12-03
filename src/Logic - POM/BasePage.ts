@@ -8,9 +8,14 @@ export class BasePage {
 
   }
 
-  async waitForPageLoad(){
+  async waitForPageLoadNet() {
     await this.page.waitForLoadState("networkidle")
   }
+  async waitForPageLoadDom() {
+    await this.page.waitForLoadState("domcontentloaded")
+  }
+
+
 
   // Add common methods here
 }

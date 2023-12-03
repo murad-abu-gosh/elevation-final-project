@@ -1,9 +1,9 @@
-import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
-import {chromium} from "playwright";
+import { test, expect, Browser, Page, BrowserContext } from '@playwright/test';
+import { chromium } from "playwright";
 
-import {LoginComponent} from "../src/Logic - POM/LoginComponent";
-import {LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME} from "../terminal-x-config";
-import {Launcher} from '../src/Infra/Launcher';
+import { LoginComponent } from "../src/Logic - POM/LoginComponent";
+import { LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME } from "../terminal-x-config";
+import { Launcher } from '../src/Infra/Launcher';
 
 
 test.describe('Terminal X Login Page', () => {
@@ -36,12 +36,12 @@ test.describe('Terminal X Login Page', () => {
 
 
     //Clear cookies and authentication
-    test.use({storageState: {cookies: [], origins: []}});
+    test.use({ storageState: { cookies: [], origins: [] } });
 
 
     test('test valid login', async () => {
         await loginPage.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
-        await loginPage.waitForPageLoad()
+        await loginPage.waitForPageLoadNet()
         expect(await loginPage.getProfileName()).toEqual(PROFILE_NAME)
 
     });
