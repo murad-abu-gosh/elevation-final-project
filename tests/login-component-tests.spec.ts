@@ -2,7 +2,7 @@ import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
 import {chromium} from "playwright";
 
 import {LoginComponent} from "../src/Logic - POM/LoginComponent";
-import {LOGIN_EMAIL, LOGIN_PASSWORD} from "../terminal-x-config";
+import {LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME} from "../terminal-x-config";
 import { Launcher } from '../src/Infra/Launcher';
 
 
@@ -41,8 +41,9 @@ test.describe('Terminal X Login Page', () => {
 
     test('test valid login', async () => {
         await loginPage.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
-        await page.waitForTimeout(7000)
-        expect(await loginPage.getProfileName()).toEqual('khaled')
+        await page.waitForLoadState('networkidle')
+        //TODO: Wait for element to be visible,then check
+        expect(await loginPage.getProfileName()).toEqual(PROFILE_NAME)
 
     });
 

@@ -11,7 +11,6 @@ describe('Search Component Tests', async () => {
     let context:BrowserContext;
     let launcher:Launcher;
     let searchComponent: SearchComponent
-    let loginComponent: LoginComponent
     test.beforeAll(async () => {
         // browser = await chromium.launch({headless: false});
         launcher = new Launcher()
@@ -23,7 +22,6 @@ describe('Search Component Tests', async () => {
         context = await launcher.NewContext()
         page = await launcher.NewPage()
         searchComponent = new SearchComponent(page)
-        loginComponent = new LoginComponent(page)
         await page.goto(SearchComponent.url);
 
     });
@@ -41,8 +39,9 @@ describe('Search Component Tests', async () => {
         test(`test search navigation for: ${data}`, async () => {
 
             await searchComponent.fullSearchFlow(data)
-            await page.waitForTimeout(2000)
+            // await page.waitForTimeout(2000)
             await page.waitForLoadState('networkidle')
+            //TODO: Put the two lines in POM
             await page.waitForURL(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
             expect(page.url()).toEqual(`https://www.terminalx.com/catalogsearch/result/?q=${data}`)
 
