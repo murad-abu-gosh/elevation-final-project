@@ -1,6 +1,6 @@
 import {Locator, Page} from '@playwright/test'
 import {BaseComponent} from "./BaseComponent";
-import {ROOT_URL} from "../../terminal-x-config";
+import {ROOT_URL} from "../../../terminal-x-config";
 
 export class SearchComponent extends BaseComponent{
     private removeFromCartButtons: Locator

@@ -1,7 +1,7 @@
 import { test, expect, Browser, Page, BrowserContext } from '@playwright/test';
 import { chromium } from "playwright";
 
-import { LoginComponent } from "../src/Logic - POM/LoginComponent";
+import { LoginComponent } from "../src/Logic/POM/LoginComponent";
 import { LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME } from "../terminal-x-config";
 import { Launcher } from '../src/Infra/Launcher';
 
