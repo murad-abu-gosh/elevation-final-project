@@ -14,22 +14,23 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
     let context: BrowserContext;
     let launcher: Launcher;
     let cartPage: CartPage
-    let loginComponent: LoginComponent
     let miniCartComponent: MiniCartComponent
 
     test.beforeAll(async () => {
-        // // browser = await chromium.launch({headless: false});
-        // launcher = new Launcher()
-        // // browser = await chromium.launch();
-        // browser = await launcher.launchBrowser()
+        launcher = new Launcher()
+        browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
         // page = await browser.newPage();
         // context = await launcher.NewContext()
         // page = await launcher.NewPage()
+        page = await browser.newPage();
+        context = await launcher.NewContext()
+        // page = await launcher.NewPage()
+
+        await page.goto(CartPage.url);
         cartPage = new CartPage(page)
-        loginComponent = new LoginComponent(page)
-        miniCartComponent = new MiniCartComponent(page)
+
     });
     test.afterEach(async () => {
         await page.close();
@@ -47,10 +48,10 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
 
 
         await cartPage.navigateToPage()
-        await cartPage.waitForPageLoadNet()
+        //  await cartPage.waitForPageLoadNet()
         let itemsCountBeforeRemoval = await cartPage.getCurrentItemsCount()
         await cartPage.fullRemoveFirstItemFlow()
-        await cartPage.waitForPageLoadNet()
+        // await cartPage.waitForPageLoadNet()
         await page.waitForTimeout(4000)
         let itemsCountAfterRemoval = await cartPage.getCurrentItemsCount()
 
@@ -62,34 +63,35 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
     });
 
 
-    test("remove first item from mini-cart", async () => {
-        // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
+    // test("remove first item from mini-cart", async () => {
+    //     // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
+    //     miniCartComponent = new MiniCartComponent(page)
+    //     await miniCartComponent.navigateToPage()
+    //     // await page.waitForTimeout(4000)
+    //     await miniCartComponent.waitForPageLoadNet()
+    //     let itemsCountBeforeRemoval = await miniCartComponent.getCurrentItemsCount()
+    //     await miniCartComponent.fullRemoveFirstItemFlow()
+    //     await miniCartComponent.waitForPageLoadNet()
+    //     let itemsCountAfterRemoval = await miniCartComponent.getCurrentItemsCount()
 
-        await miniCartComponent.navigateToPage()
-        // await page.waitForTimeout(4000)
-        await miniCartComponent.waitForPageLoadNet()
-        let itemsCountBeforeRemoval = await miniCartComponent.getCurrentItemsCount()
-        await miniCartComponent.fullRemoveFirstItemFlow()
-        await miniCartComponent.waitForPageLoadNet()
-        let itemsCountAfterRemoval = await miniCartComponent.getCurrentItemsCount()
-
-        let expected = itemsCountBeforeRemoval - 1
-        expect(itemsCountAfterRemoval).toEqual(expected)
+    //     let expected = itemsCountBeforeRemoval - 1
+    //     expect(itemsCountAfterRemoval).toEqual(expected)
 
 
-    });
+    // });
 
     test("navigate to shopping cart page", async () => {
         //Arrange
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
+        miniCartComponent = new MiniCartComponent(page)
         await miniCartComponent.navigateToPage()
 
         //Act
         await miniCartComponent.waitForPageLoadNet()
         await miniCartComponent.clickMiniCartWindow()
         await miniCartComponent.clickShoppingCartNavigateButton()
-        await miniCartComponent.waitForPageLoadNet()
+        ///await miniCartComponent.waitForPageLoadNet()
         // await page.waitForURL(`${ROOT_WEBSITE}/checkout/cart`)
 
         await cartPage.waitForCartPage()

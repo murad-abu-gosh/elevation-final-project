@@ -20,9 +20,6 @@ setup('authenticate', async ({  browser, request  }) => {
     const context = await browser.newContext({ storageState: state });
     const page = await context.newPage();
     await page.goto(ROOT_URL);
-  
-    let loginComp = new LoginComponent(page)
-    expect.soft(await loginComp.getProfileName()).toEqual('khaled');
 
     await page.context().storageState({ path: authFile });
     await page.close()

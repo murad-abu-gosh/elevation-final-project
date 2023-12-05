@@ -29,9 +29,9 @@ test.describe('Terminal X Login Page', () => {
 
     });
     test.afterEach(async () => {
-        await loginPage.waitForPageLoadDom()
-        const name = await loginPage.getProfileName()
-        if (name == -1) {
+      
+        const name = await loginPage.getProfileNameNoWait();
+        if (name != PROFILE_NAME) {
             await loginPage.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         }
         await page.close();
@@ -47,7 +47,7 @@ test.describe('Terminal X Login Page', () => {
     test('test valid login', async () => {
        
    
-       await loginPage.waitForPageLoadNet()
+       await loginPage.waitForPageLoadNet();
        expect(await loginPage.getProfileName()).toEqual(PROFILE_NAME)
 
     });
