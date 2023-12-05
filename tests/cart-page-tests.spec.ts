@@ -18,15 +18,15 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
     let miniCartComponent: MiniCartComponent
 
     test.beforeAll(async () => {
-        // browser = await chromium.launch({headless: false});
-        launcher = new Launcher()
-        // browser = await chromium.launch();
-        browser = await launcher.launchBrowser()
+        // // browser = await chromium.launch({headless: false});
+        // launcher = new Launcher()
+        // // browser = await chromium.launch();
+        // browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
         // page = await browser.newPage();
-        context = await launcher.NewContext()
-        page = await launcher.NewPage()
+        // context = await launcher.NewContext()
+        // page = await launcher.NewPage()
         cartPage = new CartPage(page)
         loginComponent = new LoginComponent(page)
         miniCartComponent = new MiniCartComponent(page)

@@ -47,8 +47,16 @@ export class LoginComponent extends BasePage {
     }
 
     getProfileName = async () => {
-        await this.page.waitForSelector("span[class*='profile-button-new-menu-underline']", {state: "visible"})
-        return this.profileName.textContent()
+        try {
+            await this.page.waitForSelector("span[class*='profile-button-new-menu-underline']", { state: "visible" ,timeout:1000 });
+            // Continue with your code if the selector is found
+            return this.profileName.textContent()
+          } catch (error) {
+            console.error("Selector not found within the specified timeout");
+            return -1;
+          }
+     
+       
     }
     fullLoginFlow = async (email: string, password: string) => {
         await this.clickLoginWindow()
