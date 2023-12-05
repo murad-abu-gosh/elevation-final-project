@@ -1,6 +1,6 @@
 // auth.setup.ts
 import { expect, test as setup } from '@playwright/test';
-import {LoginComponent} from '../src/Logic - POM/LoginComponent';
+import {LoginComponent} from '../src/Logic/POM/LoginComponent';
 import {LOGIN_EMAIL, LOGIN_PASSWORD, ROOT_URL} from "../terminal-x-config";
 import { ApiClient } from '../src/Infra/ApiClient';
 const authFile = 'playwright/.auth/user.json';
