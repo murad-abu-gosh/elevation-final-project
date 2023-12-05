@@ -1,5 +1,4 @@
 import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
-import {describe} from "node:test";
 import {chromium} from "playwright";
 import {LoginComponent} from "../src/Logic/POM/LoginComponent";
 import {SearchComponent} from "../src/Logic/POM/SearchComponent";
@@ -7,7 +6,7 @@ import { Launcher } from '../src/Infra/Launcher';
 import { HttpRequest, Method } from '../src/Infra/API_methods';
 import { ListingSearchQuery, ListingSearchRoot } from '../src/Logic/HttpRequestBody/SearchingList';
 
-describe('Search Component Tests', async () => {
+test.describe('Search Component Tests', async () => {
     let browser: Browser;
     let page: Page;
     let context:BrowserContext;

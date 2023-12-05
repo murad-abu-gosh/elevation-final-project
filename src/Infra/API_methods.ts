@@ -17,7 +17,9 @@ export class HttpRequest {
                 response = await request.post(URL, {headers: headers, data: bodyStorage})
                 if (response.ok()) {
                     this.body = await response.json()
-                    return response
+                    console.log(this.body)
+                    console.log("=========================================================")
+                    return   this.body
                 } else {
                     console.log("Error! POST false response.\n")
                 }
