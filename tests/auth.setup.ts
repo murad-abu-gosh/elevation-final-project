@@ -1,11 +1,12 @@
 // auth.setup.ts
 import { expect, test as setup } from '@playwright/test';
-import {LoginComponent} from '../src/Logic - POM/LoginComponent';
+import {LoginComponent} from '../src/Logic/POM/LoginComponent';
 import {LOGIN_EMAIL, LOGIN_PASSWORD} from "../terminal-x-config";
 
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ page }) => {
+    setup.setTimeout(60000)
     // Perform authentication steps. Replace these actions with your own.
     await page.goto(LoginComponent.url);
     let loginComp = new LoginComponent(page)

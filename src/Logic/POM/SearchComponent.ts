@@ -38,6 +38,7 @@ export class SearchComponent extends BaseComponent{
     }
 
     async fillSearchBar(searchInput: string) {
+        await this.page.waitForSelector("input[data-test='search-input']",{state:'visible'})
         await this.searchBarInput.fill(searchInput)
     }
 
