@@ -1,6 +1,6 @@
 import {Locator, Page} from '@playwright/test'
 import {BasePage} from "./BasePage";
-import {ROOT_URL} from "../../terminal-x-config";
+import {ROOT_URL} from "../../../terminal-x-config";
 import { promises } from 'dns';
 
 export class CartPage extends BasePage{

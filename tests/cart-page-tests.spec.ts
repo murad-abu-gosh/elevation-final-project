@@ -1,9 +1,9 @@
 import { test, expect, Browser, Page, BrowserContext } from '@playwright/test';
 
 import { chromium } from "playwright";
-import { CartPage } from "../src/Logic - POM/CartPage";
-import { LoginComponent } from "../src/Logic - POM/LoginComponent";
-import { MiniCartComponent } from "../src/Logic - POM/MiniCartComponent";
+import { CartPage } from "../src/Logic/POM/CartPage";
+import { LoginComponent } from "../src/Logic/POM/LoginComponent";
+import { MiniCartComponent } from "../src/Logic/POM/MiniCartComponent";
 import { Launcher } from '../src/Infra/Launcher';
 import { ROOT_URL } from "../terminal-x-config";
 
