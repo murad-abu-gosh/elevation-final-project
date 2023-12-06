@@ -17,13 +17,22 @@ export class CartPage extends BasePage{
     }
 
     initPage = async () => {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('domcontentloaded')
     }
 
     getCurrentItemsCount = async () => {
-     
-         
-    return  Number(await this.itemsCountTag.textContent())
+        let numberOfItems:number;
+        if(await this.itemsCountTag.isHidden()){
+         numberOfItems=0
+
+
+
+        }else{
+          numberOfItems = Number(await this.itemsCountTag.textContent())
+
+        }
+
+    return  numberOfItems
  
       
     }
@@ -47,8 +56,11 @@ export class CartPage extends BasePage{
 
     async waitForCartPage() {
         await this.page.waitForURL(CartPage.url)
+    }
 
-
+    async reloadPage(){
+                await this.page.reload()
+                await this.page.waitForSelector("span[class^='item-count']",{state:'visible'})
     }
 
     getCartPageUrl() {
