@@ -3,6 +3,7 @@ import { HttpRequest } from "./API_methods"
 import { Method } from "./API_methods"
 import { LoginRoot } from "../Logic/HttpRequestBody/Login";
 import { AddToCartRoot } from "../Logic/HttpRequestBody/AddToCart";
+import { RemoveFromWishListRoot } from "../Logic/HttpRequestBody/RemoveFromWList";
 
 export class ApiClient {
 
@@ -29,6 +30,18 @@ export class ApiClient {
         const body:AddToCartRoot = JSON.parse('{"cart_items": [{"data": {"quantity": 1,"any_sku": "W12533002515"}}],"skip_collect": 1}')
         return await Http.httpRequest(request,Method.POST,URL,headers,body)
     }
+    RemoveFromWishList = async (request:APIRequestContext) => {
+        const Http = new HttpRequest();
+        const headers = {"Content-Type":"application/json;charset=UTF-8","Accept":"application/json, text/plain, */*","Cookie":"syte_uuid=871f6f20-8c84-11ee-970f-53da2b897d3f; glassix-visitor-id-v2-b6d2bc1d-dcdc-4766-b620-28559157075a=817bed7e-30d7-4867-af31-996349afcfc9; syte_ab_tests={}; language=he; counter=0; PHPSESSID=sct1ei4rmq3jn24jb4j75u33hm; idus-cache-loggedin=1; fe-version=3dcd799a0af489cc1d4c878c869352d5de847c89; RSESSIONID=a6f62fe5-8731-4ff8-9c5f-f05a89a8e51e; current-universe-id-1=67; private_content_version=993d0dbaf2306529a9ab814bf74837a6"} 
+        const URL = "https://www.terminalx.com/pg/MutationRemoveProductsFromAnyWishlistById"
+        const body:RemoveFromWishListRoot = JSON.parse('{"id": 1579322}')
+        return await Http.httpRequest(request,Method.POST,URL,headers,body)  
+    }
+
+
+
+
+
 
 }
 
