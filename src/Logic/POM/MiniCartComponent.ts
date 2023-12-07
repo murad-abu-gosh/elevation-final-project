@@ -36,6 +36,7 @@ export class MiniCartComponent extends BaseComponent{
     }
 
     clickShoppingCartNavigateButton = async () => {
+        await this.page.waitForSelector("a[data-test-id='qa-link-minicart']",{state:'visible'})
         await this.shoppingCartNavigateButton.click()
     }
 
