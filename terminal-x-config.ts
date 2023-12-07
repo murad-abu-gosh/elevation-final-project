@@ -5,5 +5,6 @@ export const LOGIN_PASSWORD = 'Zxasqw12--';
 
 export const PROFILE_NAME = "khaled"
 
-export const EMPTY_WISHLIST_WARNING_TEXT = "לא הוספת עדיין פריטים לרשימה"
+export const INVALID_LOGIN_EMAIL = "invalidlogin@gmail.com";
+export const INVALID_LOGIN_PASSWORD = "invalidpassword";
 // export const TIMEOUT = 5000;
