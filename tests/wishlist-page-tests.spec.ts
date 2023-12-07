@@ -5,6 +5,7 @@ import {HttpRequest} from "../src/Infra/API_methods";
 import {WishlistPage} from "../src/Logic/POM/WishlistPage";
 import {EMPTY_WISHLIST_WARNING_TEXT} from "../terminal-x-config";
 import {ProductDisplayPage} from "../src/Logic/POM/ProductsDisplayPage";
+import {ApiClient} from "../src/Infra/ApiClient";
 
 test.describe('Terminal X Wish List Page Tests', async () => {
     let browser: Browser;
@@ -13,6 +14,7 @@ test.describe('Terminal X Wish List Page Tests', async () => {
     let launcher: Launcher;
     let wishlistPage: WishlistPage
     let productPage : ProductDisplayPage
+    let apiClient: ApiClient
 
 
     test.beforeAll(async () => {
@@ -45,11 +47,12 @@ test.describe('Terminal X Wish List Page Tests', async () => {
 
     });
 
-    test("add item to wishlist from page", async () => {
+    test("add item to wishlist from page", async ({request}) => {
         await page.goto(productPage.getProductPageUrl())
         await productPage.addItemToWishList()
         await wishlistPage.navigateToWishlistPage()
         expect(wishlistPage.getWishlistProductList()).toBeTruthy()
+        await apiClient.removeFromWishList(request)
 
     })
 
