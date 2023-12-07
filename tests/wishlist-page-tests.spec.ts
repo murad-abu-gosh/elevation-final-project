@@ -52,7 +52,7 @@ test.describe('Terminal X Wish List Page Tests', async () => {
         await productPage.addItemToWishList()
         await wishlistPage.navigateToWishlistPage()
         expect(wishlistPage.getWishlistProductList()).toBeTruthy()
-        await apiClient.removeFromWishList(request)
+        // await apiClient.removeFromWishList(request)
 
     })
 
