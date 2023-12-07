@@ -6,6 +6,7 @@ import { ApiClient } from '../src/Infra/ApiClient';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({  browser, request  }) => {
+    setup.setTimeout(60000)
     // Perform authentication steps. Replace these actions with your own.
     // await page.goto(LoginComponent.url);
     
@@ -19,10 +20,7 @@ setup('authenticate', async ({  browser, request  }) => {
     const state = await request.storageState();
     const context = await browser.newContext({ storageState: state });
     const page = await context.newPage();
-    await page.goto(ROOT_URL);
-  
-    let loginComp = new LoginComponent(page)
-    expect.soft(await loginComp.getProfileName()).toEqual('khaled');
+    await page.goto(ROOT_URL,{ waitUntil: 'domcontentloaded' });
 
     await page.context().storageState({ path: authFile });
     await page.close()

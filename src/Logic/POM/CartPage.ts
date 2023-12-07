@@ -4,26 +4,35 @@ import {ROOT_URL} from "../../../terminal-x-config";
 import { promises } from 'dns';
 
 export class CartPage extends BasePage{
-    private removeFromCartButtons: Locator
+    // private removeFromCartButtons: Locator
     public static url: string = `${ROOT_URL}/checkout/cart`
     private itemsCountTag: Locator
     private shoppingCartNavigateButton: Locator
 
     constructor(page: Page) {
         super(page)
-        this.removeFromCartButtons = page.locator("div[class^='cart-items-list']").locator("button[class*='remove_wq']")
+       
         this.itemsCountTag = page.locator("span[class^='item-count']")
         this.initPage()
     }
 
     initPage = async () => {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('domcontentloaded')
     }
 
     getCurrentItemsCount = async () => {
-     
-         
-    return  Number(await this.itemsCountTag.textContent())
+        let numberOfItems:number;
+        if(await this.itemsCountTag.isHidden()){
+         numberOfItems=0
+
+
+
+        }else{
+          numberOfItems = Number(await this.itemsCountTag.textContent())
+
+        }
+
+    return  numberOfItems
  
       
     }
@@ -33,7 +42,8 @@ export class CartPage extends BasePage{
     }
 
     clickFirstItemRemoveButton = async () => {
-        await this.removeFromCartButtons.first().click()
+        const removeFromCartButtons = this.page.locator("div[class^='cart-items-list']").locator("button[class*='remove_wq']")
+        await removeFromCartButtons.first().click()
     }
 
     fullRemoveFirstItemFlow = async () => {
@@ -46,8 +56,11 @@ export class CartPage extends BasePage{
 
     async waitForCartPage() {
         await this.page.waitForURL(CartPage.url)
+    }
 
-
+    async reloadPage(){
+                await this.page.reload()
+                await this.page.waitForSelector("span[class^='item-count']",{state:'visible'})
     }
 
     getCartPageUrl() {
