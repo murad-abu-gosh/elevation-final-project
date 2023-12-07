@@ -4,7 +4,7 @@ import { ApiClient } from "../src/Infra/ApiClient";
 import { LoginComponent } from "../src/Logic/POM/LoginComponent";
 
 
-test.describe("implement the log out tests stream ",()=>{
+test.describe("implement the log out tests stream ", () => {
 
     let browser: Browser;
     let context: BrowserContext;
@@ -39,14 +39,14 @@ test.describe("implement the log out tests stream ",()=>{
         await browser.close();
     });
 
-    test("check logout feature", async({request})=>{
+    test("check logout feature", async ({ request }) => {
 
         LogOutWithApi.logOutApi(request)
-        page.reload()
-        
-        const status = loginPage.getProfileNameNoWait()
+        await page.reload()
 
-        expect(status).toEqual({})
+        const status = await loginPage.getProfileNameNoWait()
+
+        expect(status).toEqual(null)
 
 
 

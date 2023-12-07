@@ -50,11 +50,14 @@ export class LoginComponent extends BasePage {
     getProfileNameNoWait = async () => {
         const element = await this.page.$('.profile-button-new-menu-underline_1fv_');
         if (element) {
+            console.log("element" , element)
             return await element.textContent();
         } else {
-            return -1
+          
+            return null
         }
     }
+  
 
 
     getProfileName = async () => {
