@@ -18,13 +18,13 @@ export class MiniCartComponent extends BaseComponent{
         this.removeFromCartButtons = page.locator("div[class^='minicart-items']").locator("button[class*='remove_wq']")
         this.miniCartWindow = page.locator("a[data-test-id='qa-link-minicart']")
         this.confirmRemoveButton = page.getByText("אישור")
-        this.itemsCountTag = page.locator("span[class^='item-count']")
+        this.itemsCountTag = page.locator("a[data-test-id='qa-link-minicart']").locator("span[class^='item-count']")
         this.shoppingCartNavigateButton = page.locator("a[data-test-id='qa-minicart-cart-button']")
         this.initPage()
     }
 
     initPage = async () => {
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('domcontentloaded')
     }
 
     getCurrentItemsCount = async () => {

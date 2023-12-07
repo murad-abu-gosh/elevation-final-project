@@ -1,6 +1,30 @@
-// "li[class*='listing-product']"
-// "div[data-test-id='qa-size-item']"
-// "div[data-test-id='qa-color-item-not-available']"
-// "div[data-test-id='qa-size-item-not-available']"
-// "div[data-test-id='qa-color-item']"
-// "div[data-test-id='qa-header-login-button']"
+import {Locator, Page} from '@playwright/test'
+import {BasePage} from "./BasePage";
+import {ROOT_URL} from "../../../terminal-x-config";
+import { promises } from 'dns';
+
+export class ProductDisplayPage extends BasePage{
+    // private removeFromCartButtons: Locator
+    public static url: string = `${ROOT_URL}/men/knitwear-sweatshirts/knitwear/w114640001?color=4`
+    private addToWishlistButton: Locator
+
+    constructor(page: Page) {
+        super(page)
+
+        this.addToWishlistButton = page.locator("button[class^='toggle_3KGH']")
+        this.initPage()
+    }
+
+    initPage = async () => {
+        await this.page.waitForLoadState('domcontentloaded')
+    }
+
+    getProductPageUrl() {
+        return ProductDisplayPage.url
+    }
+
+    async addItemToWishList(){
+        await this.addToWishlistButton.click()
+    }
+
+}

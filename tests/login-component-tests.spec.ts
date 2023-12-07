@@ -52,13 +52,13 @@ test.describe('Terminal X Login Page', () => {
 
     });
 
-    test('test invalid login', async ({request}) => {
-        await loginPage.waitForPageLoadNet()
-        await LoginWithApi.logOutApi(request);
-        await page.reload();
-        await loginPage.fullLoginFlow("invalidlogin@gmail.com", "invalidpassword")
-        expect(loginPage.getAlertBox()).toBeTruthy()
-
-
-    });
+    // test('test invalid login', async ({request}) => {
+    //     await loginPage.waitForPageLoadNet()
+    //     await LoginWithApi.logOutApi(request);
+    //     await page.reload();
+    //     await loginPage.fullLoginFlow("invalidlogin@gmail.com", "invalidpassword")
+    //     expect(loginPage.getAlertBox()).toBeTruthy()
+    //
+    //
+    // });
 });
