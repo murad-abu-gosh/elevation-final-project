@@ -12,9 +12,7 @@ test(`test search navigation for: ${data}`, async ({request}) => {
     // const response=await httpMethod.httpRequest(request,Method.POST,"https://www.terminalx.com/a/listingSearch",headers,body)
    
    const api:ApiClient=new ApiClient()
-   const x=await api.RemoveFromWishList(request)
-    console.log(`${ data }\n`)  
-
+   const x=await api.removeFromWishList(request)
     console.log( x)
 
 })

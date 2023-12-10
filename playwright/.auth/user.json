@@ -2,17 +2,17 @@
   "cookies": [
     {
       "name": "private_content_version",
-      "value": "5b691f30e47c959be1b0f591cbae8291",
+      "value": "9d52608c69d6be2f7c96faa079efa48a",
       "domain": "www.terminalx.com",
       "path": "/",
-      "expires": 1736531644.708923,
+      "expires": 1736792471.038522,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "counter",
-      "value": "1",
+      "value": "0",
       "domain": "www.terminalx.com",
       "path": "/",
       "expires": -1,
@@ -22,23 +22,13 @@
     },
     {
       "name": "PHPSESSID",
-      "value": "hk4e0g700vjfntf88rb3rsuves",
+      "value": "hg14ch0j5jfkkbkp2p4rj2qldu",
       "domain": ".www.terminalx.com",
       "path": "/",
-      "expires": 1733507644.661,
+      "expires": 1733768470.998,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
-    },
-    {
-      "name": "stimgs",
-      "value": "{%22sessionId%22:66824398%2C%22didReportCameraImpression%22:false%2C%22newUser%22:null}",
-      "domain": "www.terminalx.com",
-      "path": "/",
-      "expires": 1701974571,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
     }
   ],
   "origins": []

@@ -5,6 +5,7 @@ import { LoginComponent } from "../src/Logic/POM/LoginComponent";
 import { INVALID_LOGIN_EMAIL, INVALID_LOGIN_PASSWORD, LOGIN_EMAIL, LOGIN_PASSWORD, PROFILE_NAME } from "../terminal-x-config";
 import { Launcher } from '../src/Infra/Launcher';
 import { ApiClient } from '../src/Infra/ApiClient';
+import { InvalidloginRoot } from '../src/Logic/HttpResponseBody/Response_InvaildLogin';
 
 const authFile = 'playwright/.auth/user.json';
 test.describe('Terminal X Login Page', () => {
@@ -55,8 +56,10 @@ test.describe('Terminal X Login Page', () => {
 
     test('test invalid login', async ({ request }) => {
         await loginPage.waitForPageLoadNet()
-        let result = await LoginWithApi.loginApi(request, INVALID_LOGIN_EMAIL, INVALID_LOGIN_PASSWORD);
-        const errorMessage = result.errors[0]?.message;
+         
+        const result = await LoginWithApi.loginApi(request, INVALID_LOGIN_EMAIL, INVALID_LOGIN_PASSWORD);
+        const resultBody:InvalidloginRoot = <InvalidloginRoot> result 
+        const errorMessage = resultBody.errors[0]?.message;
         expect(errorMessage).toEqual("משתמש או סיסמה שגויים.")
 
 
