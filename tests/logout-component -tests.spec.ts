@@ -43,9 +43,9 @@ test.describe("implement the log out tests stream ", () => {
         await browser.close();
     });
 
-    test("check logout feature", async ({ request }) => {
+    test("test logout feature", async ({ request }) => {
       
-        LogOutWithApi.logOutApi(request)
+        await LogOutWithApi.logOutApi(request)
         await page.reload()
         const status = await loginPage.getProfileNameNoWait()
         expect(status).toEqual(null)
