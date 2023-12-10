@@ -20,6 +20,7 @@ test.describe('Terminal X Login Page', () => {
         browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
+        test.setTimeout(60000)
         page = await browser.newPage();
         context = await launcher.NewContext()
         // page = await launcher.NewPage()

@@ -29,6 +29,16 @@
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
+    },
+    {
+      "name": "stimgs",
+      "value": "{%22sessionId%22:66824398%2C%22didReportCameraImpression%22:false%2C%22newUser%22:null}",
+      "domain": "www.terminalx.com",
+      "path": "/",
+      "expires": 1701974571,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
     }
   ],
   "origins": []

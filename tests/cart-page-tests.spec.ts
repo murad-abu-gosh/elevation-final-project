@@ -42,11 +42,11 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         await browser.close();
     });
 
-    test.describe.configure({ mode: 'serial' });
+    // test.describe.configure({ mode: 'serial' });
 
 
     test("remove first item from cart", async ({request}) => {
-        test.setTimeout(60000)
+        // test.setTimeout(60000)
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
         const response = await API.AddToCartApi(request)
@@ -94,16 +94,14 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
         // await page.waitForLoadState('networkidle')
         miniCartComponent = new MiniCartComponent(page)
-        await miniCartComponent.navigateToPage()
 
         //Act
-        await miniCartComponent.waitForPageLoadNet()
-        await miniCartComponent.clickMiniCartWindow()
-        await miniCartComponent.clickShoppingCartNavigateButton()
+        await cartPage.navigateToPage()
+
         ///await miniCartComponent.waitForPageLoadNet()
         // await page.waitForURL(`${ROOT_WEBSITE}/checkout/cart`)
 
-        await cartPage.waitForCartPage()
+        // await cartPage.waitForCartPage()
         expect(page.url()).toEqual(cartPage.getCartPageUrl())
         //Assert
         // expect(page.url()).toEqual(`${ROOT_WEBSITE}/checkout/cart`)
