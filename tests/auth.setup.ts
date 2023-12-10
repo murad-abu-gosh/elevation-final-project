@@ -6,15 +6,6 @@ import { ApiClient } from '../src/Infra/ApiClient';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({  browser, request  }) => {
-    setup.setTimeout(60000)
-    // Perform authentication steps. Replace these actions with your own.
-    // await page.goto(LoginComponent.url);
-    
-    // await loginComp.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
-    // // Wait until the page receives the cookies.
-    // await page.waitForLoadState("networkidle")
-   
-    // await page.goto(LoginComponent.url, { waitUntil: 'domcontentloaded' });
     let LoginWithApi = new ApiClient();
     let respone = await LoginWithApi.loginApi(request,LOGIN_EMAIL ,LOGIN_PASSWORD );
     const state = await request.storageState();

@@ -40,7 +40,6 @@ test.describe('Search Component Tests', async () => {
     const testData = ["nike", "adidas", "puma"]
     for (const data of testData) {
         test(`test search navigation for: ${data}`, async ({request}) => {
-            test.setTimeout(60000)
 
             await searchComponent.fullSearchFlow(data)
             // await page.waitForTimeout(2000)

@@ -46,11 +46,8 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         await cartPage.reloadPage()
 
         await cartPage.navigateToPage()
-
-
         let itemsCountBeforeRemoval = Number(response["data"]["addAnyProductsToAnyCart"]["total_quantity"])
         await cartPage.fullRemoveFirstItemFlow()
-        // await cartPage.waitForPageLoadNet()
         await cartPage.waitForEmptyCart()
         let itemsCountAfterRemoval = await cartPage.getCurrentItemsCount()
         let expected = itemsCountBeforeRemoval - 1
@@ -80,20 +77,13 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
 
     test("navigate to shopping cart page", async () => {
         //Arrange
-        // await loginComponent.fullLoginFlow(LOGIN_EMAIL, LOGIN_PASSWORD)
-        // await page.waitForLoadState('networkidle')
         miniCartComponent = new MiniCartComponent(page)
 
         //Act
         await cartPage.navigateToPage()
 
-        ///await miniCartComponent.waitForPageLoadNet()
-        // await page.waitForURL(`${ROOT_WEBSITE}/checkout/cart`)
-
-        // await cartPage.waitForCartPage()
-        expect(page.url()).toEqual(cartPage.getCartPageUrl())
         //Assert
-        // expect(page.url()).toEqual(`${ROOT_WEBSITE}/checkout/cart`)
+        expect(page.url()).toEqual(cartPage.getCartPageUrl())
 
 
     });

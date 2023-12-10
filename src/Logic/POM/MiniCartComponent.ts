@@ -77,12 +77,4 @@ export class MiniCartComponent extends BaseComponent{
     async navigateToPage(){
         await this.page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
     }
-
-    async waitForMiniCartPage() {
-
-    }
-
-    getMiniCartPage() {
-        return undefined;
-    }
 }

@@ -29,10 +29,6 @@ export class WishlistPage extends BasePage{
         await this.page.waitForSelector("span[class^='item-count']",{state:'visible'})
     }
 
-    getWishlistPageUrl() {
-        return WishlistPage.url
-    }
-
     async getEmptyWishlistWarningText() {
         return await this.wishlistEmptyWarning.textContent()
     }
