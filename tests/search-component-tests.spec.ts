@@ -41,15 +41,6 @@ test.describe('Search Component Tests', async () => {
     for (const data of testData) {
         test(`test search navigation for: ${data}`, async ({request}) => {
             test.setTimeout(60000)
-            HttpMethod = new HttpRequest()
-            let headers = {
-                "Content-Type": "application/json;charset=UTF-8",
-                "Accept": "application/json, text/plain, */*"
-            }
-            let body: ListingSearchRoot = JSON.parse(`{"listingSearchQuery": {"categoryId": "2","filter": {"category_id": {"eq": "2"}},"pageSize": 24,"currentPage": 1,"search": "${data}","sort": {"default": true},"includeAggregations": true,"includeCategory": true}}`)
-            const response = await HttpMethod.httpRequest(request, Method.POST, "https://www.terminalx.com/a/listingSearch", headers, body)
-            console.log(`${data}\n`)
-            console.log(HttpMethod.GetBody())
 
             await searchComponent.fullSearchFlow(data)
             // await page.waitForTimeout(2000)
