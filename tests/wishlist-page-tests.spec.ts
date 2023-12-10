@@ -1,11 +1,12 @@
-import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
+import {test, expect, Browser, Page, BrowserContext, APIRequestContext} from '@playwright/test';
 import {Launcher} from "../src/Infra/Launcher";
 import {SearchComponent} from "../src/Logic/POM/SearchComponent";
-import {HttpRequest} from "../src/Infra/API_methods";
+import {HttpRequest, Method} from "../src/Infra/API_methods";
 import {WishlistPage} from "../src/Logic/POM/WishlistPage";
 import {EMPTY_WISHLIST_WARNING_TEXT} from "../terminal-x-config";
 import {ProductDisplayPage} from "../src/Logic/POM/ProductsDisplayPage";
 import {ApiClient} from "../src/Infra/ApiClient";
+import {RemoveFromWishListRoot} from "../src/Logic/HttpRequestBody/RemoveFromWList";
 
 test.describe('Terminal X Wish List Page Tests', async () => {
     let browser: Browser;
@@ -27,6 +28,7 @@ test.describe('Terminal X Wish List Page Tests', async () => {
         page = await context.newPage();
         wishlistPage = new WishlistPage(page)
         productPage = new ProductDisplayPage(page)
+        apiClient = new ApiClient()
 
     });
     test.afterEach(async () => {
@@ -48,10 +50,12 @@ test.describe('Terminal X Wish List Page Tests', async () => {
     });
 
     test("add item to wishlist from page", async ({request}) => {
+
         await page.goto(productPage.getProductPageUrl())
         await productPage.addItemToWishList()
         await wishlistPage.navigateToWishlistPage()
         expect(wishlistPage.getWishlistProductList()).toBeTruthy()
+        const response = await apiClient.removeFromWishList(request)
         // await apiClient.removeFromWishList(request)
 
     })
