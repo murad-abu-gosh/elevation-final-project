@@ -2,6 +2,8 @@ export const ROOT_URL = "https://www.terminalx.com"
 
 export const LOGIN_EMAIL = 'khaledidkidk@gmail.com';
 export const LOGIN_PASSWORD = 'Zxasqw12--';
+export const LOGIN_EMAIL2 = 'kaled_031_fbi@hotmail.com';
+export const LOGIN_PASSWORD2= 'Zxasqw12--';
 
 export const EMPTY_WISHLIST_WARNING_TEXT = "לא הוספת עדיין פריטים לרשימה"
 export const PROFILE_NAME = "khaled"

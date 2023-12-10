@@ -1,18 +1,20 @@
 import {Locator, Page} from '@playwright/test'
 import {BasePage} from "./BasePage";
 import {ROOT_URL} from "../../../terminal-x-config";
-import { promises } from 'dns';
+import {promises} from 'dns';
 
-export class CartPage extends BasePage{
+export class CartPage extends BasePage {
     // private removeFromCartButtons: Locator
     public static url: string = `${ROOT_URL}/checkout/cart`
     private itemsCountTag: Locator
     private shoppingCartNavigateButton: Locator
+    private emptyCartDivLocator: string
 
     constructor(page: Page) {
         super(page)
-       
-        this.itemsCountTag = page.locator("span[class^='item-count']")
+
+        this.itemsCountTag = page.locator("div[class^='cart-items-list']").locator("span[class^='item-count']")
+        this.emptyCartDivLocator = "div[class*='no-products']"
         this.initPage()
     }
 
@@ -21,20 +23,19 @@ export class CartPage extends BasePage{
     }
 
     getCurrentItemsCount = async () => {
-        let numberOfItems:number;
-        if(await this.itemsCountTag.isHidden()){
-         numberOfItems=0
+        let numberOfItems: number;
+        if (await this.itemsCountTag.isHidden()) {
+            numberOfItems = 0
 
 
-
-        }else{
-          numberOfItems = Number(await this.itemsCountTag.textContent())
+        } else {
+            numberOfItems = Number(await this.itemsCountTag.textContent())
 
         }
 
-    return  numberOfItems
- 
-      
+        return numberOfItems
+
+
     }
 
     clickShoppingCartNavigateButton = async () => {
@@ -50,17 +51,22 @@ export class CartPage extends BasePage{
         await this.clickFirstItemRemoveButton()
     }
 
-    async navigateToPage(){
-        await this.page.goto(CartPage.url, { waitUntil: 'domcontentloaded' })
+    async waitForEmptyCart() {
+        await this.page.waitForSelector(this.emptyCartDivLocator, {state: "visible"})
+    }
+
+    async navigateToPage() {
+        await this.page.goto(CartPage.url, {waitUntil: 'networkidle'})
     }
 
     async waitForCartPage() {
         await this.page.waitForURL(CartPage.url)
     }
 
-    async reloadPage(){
-                await this.page.reload()
-                await this.page.waitForSelector("span[class^='item-count']",{state:'visible'})
+    async reloadPage() {
+        await this.page.reload()
+        await this.page.waitForLoadState("networkidle")
+        await this.page.waitForSelector("a[data-test-id='qa-link-minicart']", {state: 'visible'})
     }
 
     getCartPageUrl() {

@@ -11,6 +11,7 @@ export class MiniCartComponent extends BaseComponent{
     private confirmRemoveButton: Locator;
     private itemsCountTag: Locator
     private shoppingCartNavigateButton: Locator
+    private miniCartLocator: string
 
     constructor(page: Page) {
         super(page)
@@ -20,6 +21,7 @@ export class MiniCartComponent extends BaseComponent{
         this.confirmRemoveButton = page.getByText("אישור")
         this.itemsCountTag = page.locator("a[data-test-id='qa-link-minicart']").locator("span[class^='item-count']")
         this.shoppingCartNavigateButton = page.locator("a[data-test-id='qa-minicart-cart-button']")
+        this.miniCartLocator = "div[class^='minicart-wrapper']"
         this.initPage()
     }
 
@@ -28,7 +30,19 @@ export class MiniCartComponent extends BaseComponent{
     }
 
     getCurrentItemsCount = async () => {
-        return Number(await this.itemsCountTag.textContent());
+        let numberOfItems: number;
+        if (await this.itemsCountTag.isHidden()) {
+            numberOfItems = 0
+
+
+        } else {
+            numberOfItems = Number(await this.itemsCountTag.textContent())
+
+        }
+
+        return numberOfItems
+
+
     }
 
     clickMiniCartWindow = async () => {
@@ -38,6 +52,10 @@ export class MiniCartComponent extends BaseComponent{
     clickShoppingCartNavigateButton = async () => {
         await this.page.waitForSelector("a[data-test-id='qa-link-minicart']",{state:'visible'})
         await this.shoppingCartNavigateButton.click()
+    }
+
+    async waitForMiniCartHidden(){
+        await this.page.waitForSelector(this.miniCartLocator,{state:'hidden'})
     }
 
     clickConfirmRemoveButton = async () => {
@@ -53,17 +71,10 @@ export class MiniCartComponent extends BaseComponent{
         await this.clickMiniCartWindow()
         await this.clickFirstItemRemoveButton()
         await this.clickConfirmRemoveButton()
+        await this.waitForMiniCartHidden()
     }
 
     async navigateToPage(){
         await this.page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
-    }
-
-    async waitForMiniCartPage() {
-
-    }
-
-    getMiniCartPage() {
-        return undefined;
     }
 }
