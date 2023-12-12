@@ -2,7 +2,7 @@ import {Locator, Page} from '@playwright/test'
 import {BaseComponent} from "./BaseComponent";
 import {ROOT_URL} from "../../../terminal-x-config";
 
-export class MiniCartComponent extends BaseComponent{
+export class MiniCartComponent extends BaseComponent {
     private email: Locator
     private password: Locator
     private removeFromCartButtons: Locator
@@ -33,13 +33,9 @@ export class MiniCartComponent extends BaseComponent{
         let numberOfItems: number;
         if (await this.itemsCountTag.isHidden()) {
             numberOfItems = 0
-
-
         } else {
             numberOfItems = Number(await this.itemsCountTag.textContent())
-
         }
-
         return numberOfItems
 
 
@@ -50,12 +46,12 @@ export class MiniCartComponent extends BaseComponent{
     }
 
     clickShoppingCartNavigateButton = async () => {
-        await this.page.waitForSelector("a[data-test-id='qa-link-minicart']",{state:'visible'})
+        await this.page.waitForSelector("a[data-test-id='qa-link-minicart']", {state: 'visible'})
         await this.shoppingCartNavigateButton.click()
     }
 
-    async waitForMiniCartHidden(){
-        await this.page.waitForSelector(this.miniCartLocator,{state:'hidden'})
+    async waitForMiniCartHidden() {
+        await this.page.waitForSelector(this.miniCartLocator, {state: 'hidden'})
     }
 
     clickConfirmRemoveButton = async () => {
@@ -74,7 +70,7 @@ export class MiniCartComponent extends BaseComponent{
         await this.waitForMiniCartHidden()
     }
 
-    async navigateToPage(){
-        await this.page.goto(MiniCartComponent.url, { waitUntil: 'domcontentloaded' })
+    async navigateToPage() {
+        await this.page.goto(MiniCartComponent.url, {waitUntil: 'domcontentloaded'})
     }
 }

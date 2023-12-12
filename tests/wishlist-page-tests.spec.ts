@@ -1,12 +1,9 @@
 import {test, expect, Browser, Page, BrowserContext, APIRequestContext} from '@playwright/test';
 import {Launcher} from "../src/Infra/Launcher";
-import {SearchComponent} from "../src/Logic/POM/SearchComponent";
-import {HttpRequest, Method} from "../src/Infra/API_methods";
 import {WishlistPage} from "../src/Logic/POM/WishlistPage";
 import {EMPTY_WISHLIST_WARNING_TEXT} from "../terminal-x-config";
 import {ProductDisplayPage} from "../src/Logic/POM/ProductsDisplayPage";
 import {ApiClient} from "../src/Infra/ApiClient";
-import {RemoveFromWishListRoot} from "../src/Logic/HttpRequestBody/RemoveFromWList";
 
 test.describe('Terminal X Wish List Page Tests', async () => {
     let browser: Browser;
@@ -14,7 +11,7 @@ test.describe('Terminal X Wish List Page Tests', async () => {
     let context: BrowserContext;
     let launcher: Launcher;
     let wishlistPage: WishlistPage
-    let productPage : ProductDisplayPage
+    let productPage: ProductDisplayPage
     let apiClient: ApiClient
 
 
@@ -23,7 +20,6 @@ test.describe('Terminal X Wish List Page Tests', async () => {
         browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
-        // page = await browser.newPage();
         context = await launcher.NewContext()
         page = await context.newPage();
         wishlistPage = new WishlistPage(page)
@@ -38,25 +34,33 @@ test.describe('Terminal X Wish List Page Tests', async () => {
         await browser.close();
     });
 
-    test.describe.configure({ mode: 'serial' });
+    test.describe.configure({mode: 'serial'});
 
 
     test("empty wishlist warning visible", async () => {
+        //Arrange
         await page.goto(WishlistPage.url);
+
+        //Act
         let warningText = await wishlistPage.getEmptyWishlistWarningText()
 
+        //Assert
         expect(warningText).toContain(EMPTY_WISHLIST_WARNING_TEXT)
 
     });
 
     test("add item to wishlist from page", async ({request}) => {
 
+        //Arrange
         await page.goto(productPage.getProductPageUrl())
+
+        //Act
         await productPage.addItemToWishList()
         await wishlistPage.navigateToWishlistPage()
+
+        //Assert
         expect(wishlistPage.getWishlistProductList()).toBeTruthy()
-        const response = await apiClient.removeFromWishList(request)
-        // await apiClient.removeFromWishList(request)
+        await apiClient.removeFromWishList(request)
 
     })
 

@@ -1,10 +1,8 @@
 import {Locator, Page} from '@playwright/test'
 import {BasePage} from "./BasePage";
 import {ROOT_URL} from "../../../terminal-x-config";
-import { promises } from 'dns';
 
 export class WishlistPage extends BasePage{
-    // private removeFromCartButtons: Locator
     public static url: string = `${ROOT_URL}/wishlist/items`
     private wishlistItemsCountTag: Locator
     private wishlistEmptyWarning: Locator

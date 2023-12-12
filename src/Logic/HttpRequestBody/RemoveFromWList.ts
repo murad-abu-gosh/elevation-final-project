@@ -1,3 +1,3 @@
 export interface RemoveFromWishListRoot {
-  id: number
+    id: number
 }

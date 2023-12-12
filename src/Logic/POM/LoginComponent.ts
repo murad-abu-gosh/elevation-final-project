@@ -1,6 +1,6 @@
-import { Locator, Page } from '@playwright/test'
-import { BasePage } from "./BasePage";
-import { ROOT_URL } from "../../../terminal-x-config";
+import {Locator, Page} from '@playwright/test'
+import {BasePage} from "./BasePage";
+import {ROOT_URL} from "../../../terminal-x-config";
 
 export class LoginComponent extends BasePage {
     private email: Locator
@@ -50,24 +50,18 @@ export class LoginComponent extends BasePage {
     getProfileNameNoWait = async () => {
         const element = await this.page.$('.profile-button-new-menu-underline_1fv_');
         if (element) {
-            console.log("element" , element)
+            console.log("element", element)
             return await element.textContent();
         } else {
-          
+
             return null
         }
     }
-  
 
 
     getProfileName = async () => {
-      
-            await this.page.waitForSelector("span[class*='profile-button-new-menu-underline']", { state: "visible" });
-            // Continue with your code if the selector is found
-            return this.profileName.textContent()
-       
-
-
+        await this.page.waitForSelector("span[class*='profile-button-new-menu-underline']", {state: "visible"});
+        return this.profileName.textContent()
     }
     fullLoginFlow = async (email: string, password: string) => {
         await this.clickLoginWindow()

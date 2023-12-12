@@ -1,12 +1,10 @@
-import { test, expect, Browser, Page, BrowserContext } from '@playwright/test';
+import {test, expect, Browser, Page, BrowserContext} from '@playwright/test';
 
-import { chromium } from "playwright";
-import { CartPage } from "../src/Logic/POM/CartPage";
-import { LoginComponent } from "../src/Logic/POM/LoginComponent";
-import { MiniCartComponent } from "../src/Logic/POM/MiniCartComponent";
-import { Launcher } from '../src/Infra/Launcher';
-import { ROOT_URL } from "../terminal-x-config";
-import { ApiClient } from '../src/Infra/ApiClient';
+import {CartPage} from "../src/Logic/POM/CartPage";
+import {MiniCartComponent} from "../src/Logic/POM/MiniCartComponent";
+import {Launcher} from '../src/Infra/Launcher';
+import {ApiClient} from '../src/Infra/ApiClient';
+import {RootAddItem} from '../src/Logic/HttpResponseBody/Response_AddItem';
 
 
 test.describe('Cart Page and Mini-Cart Tests', async () => {
@@ -22,11 +20,11 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         browser = await launcher.launchBrowser()
     });
     test.beforeEach(async () => {
-        API =new ApiClient()
+        API = new ApiClient()
         page = await browser.newPage();
         context = await launcher.NewContext()
 
-        await page.goto(CartPage.url,{waitUntil:'domcontentloaded'});
+        await page.goto(CartPage.url, {waitUntil: 'domcontentloaded'});
         cartPage = new CartPage(page)
 
     });
@@ -37,22 +35,24 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
         await browser.close();
     });
 
-    test.describe.configure({ mode: 'serial' });
-
+    test.describe.configure({mode: 'serial'});
 
     test("remove first item from cart", async ({request}) => {
-
-        const response = await API.AddToCartApi(request)
+        //Arrange
+        const temp = await API.AddToCartApi(request)
+        const response: RootAddItem = <RootAddItem>temp
         await cartPage.reloadPage()
-
         await cartPage.navigateToPage()
-        let itemsCountBeforeRemoval = Number(response["data"]["addAnyProductsToAnyCart"]["total_quantity"])
+
+        //Act
+        let itemsCountBeforeRemoval = Number(response.data.addAnyProductsToAnyCart.total_quantity)
+        console.log(itemsCountBeforeRemoval)
         await cartPage.fullRemoveFirstItemFlow()
         await cartPage.waitForEmptyCart()
         let itemsCountAfterRemoval = await cartPage.getCurrentItemsCount()
         let expected = itemsCountBeforeRemoval - 1
-    
 
+        //Assert
         expect(itemsCountAfterRemoval).toEqual(expected)
 
 
@@ -60,16 +60,20 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
 
 
     test("remove first item from mini-cart", async ({request}) => {
+        //Arrange
         const response = await API.AddToCartApi(request)
         miniCartComponent = new MiniCartComponent(page)
         await miniCartComponent.navigateToPage()
         await cartPage.reloadPage()
+
+        //Act
         let itemsCountBeforeRemoval = await miniCartComponent.getCurrentItemsCount()
         await miniCartComponent.fullRemoveFirstItemFlow()
         await cartPage.reloadPage()
         let itemsCountAfterRemoval = await miniCartComponent.getCurrentItemsCount()
-
         let expected = itemsCountBeforeRemoval - 1
+
+        //Assert
         expect(itemsCountAfterRemoval).toEqual(expected)
 
 
@@ -84,7 +88,5 @@ test.describe('Cart Page and Mini-Cart Tests', async () => {
 
         //Assert
         expect(page.url()).toEqual(cartPage.getCartPageUrl())
-
-
     });
 });

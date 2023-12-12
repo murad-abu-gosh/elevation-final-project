@@ -1,6 +1,5 @@
 import {Page} from 'playwright';
 import {Locator} from "@playwright/test";
-import {WishlistPage} from "./WishlistPage";
 
 export class BasePage {
     protected page: Page;
@@ -22,7 +21,4 @@ export class BasePage {
     }
 
 
-
-
-    // Add common methods here
 }

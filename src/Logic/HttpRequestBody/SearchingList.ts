@@ -1,8 +1,8 @@
 export interface ListingSearchRoot {
     listingSearchQuery: ListingSearchQuery
-  }
-  
-  export interface ListingSearchQuery {
+}
+
+export interface ListingSearchQuery {
     categoryId: string
     filter: Filter
     pageSize: number
@@ -11,17 +11,17 @@ export interface ListingSearchRoot {
     sort: Sort
     includeAggregations: boolean
     includeCategory: boolean
-  }
-  
-  export interface Filter {
+}
+
+export interface Filter {
     category_id: CategoryId
-  }
-  
-  export interface CategoryId {
+}
+
+export interface CategoryId {
     eq: string
-  }
-  
-  export interface Sort {
+}
+
+export interface Sort {
     default: boolean
-  }
+}
   
