@@ -4,27 +4,25 @@ import {Method} from "./API_methods"
 import {LoginRoot} from "../Logic/HttpRequestBody/Login";
 import {AddToCartRoot} from "../Logic/HttpRequestBody/AddToCart";
 import {RemoveFromWishListRoot} from "../Logic/HttpRequestBody/RemoveFromWList";
-import { Serializable } from "worker_threads";
 
 export class ApiClient {
 
 
-    loginApi = async <T>(request: APIRequestContext, email: string, password: string):Promise<T|undefined> => {
+    loginApi = async <T>(request: APIRequestContext, email: string, password: string): Promise<T | undefined> => {
         let Http = new HttpRequest();
         const jsonString = `{"username": "${email}", "password": "${password}"}`;
         let loginObj: LoginRoot = JSON.parse(jsonString);
 
-        //let body = {"username":email,"password":password}
         let headers = {"Content-Type": "application/json;charset=UTF-8", "Accept": "application/json, text/plain, */*"}
         return await Http.httpRequest(request, Method.POST, "https://www.terminalx.com/pg/MutationUserLogin?v=I9dIkXxqUgEmvaClIy6g3%2FMlpMA%3D", headers, loginObj)
     }
-    logOutApi = async <T>(request: APIRequestContext):Promise<T|undefined> => {
+    logOutApi = async <T>(request: APIRequestContext): Promise<T | undefined> => {
         let Http = new HttpRequest();
 
         let headers = {"Content-Type": "application/json;charset=UTF-8", "Accept": "application/json, text/plain, */*"}
         return await Http.httpRequest(request, Method.POST, "https://www.terminalx.com/pg/MutationUserLogout?v=4sGyilpYObb3cqN0XV3TyptzJ0U%3D", headers, {})
     }
-     AddToCartApi = async <T>(request: APIRequestContext):Promise<T|undefined>=> {
+    AddToCartApi = async <T>(request: APIRequestContext): Promise<T | undefined> => {
         const Http = new HttpRequest();
         const headers = {
             "Content-Type": "application/json;charset=UTF-8",
@@ -35,7 +33,7 @@ export class ApiClient {
         const body: AddToCartRoot = JSON.parse('{"cart_items": [{"data": {"quantity": 1,"any_sku": "W12533002515"}}],"skip_collect": 1}')
         return await Http.httpRequest(request, Method.POST, URL, headers, body)
     }
-    removeFromWishList = async <T>(request: APIRequestContext):Promise<T|undefined> => {
+    removeFromWishList = async <T>(request: APIRequestContext): Promise<T | undefined> => {
         const Http = new HttpRequest();
         const headers = {
             "Content-Type": "application/json;charset=UTF-8",
@@ -49,8 +47,3 @@ export class ApiClient {
 
 
 }
-
-
-// export enum Method {
-//     POST = "POST", GET = "GET"
-// }
